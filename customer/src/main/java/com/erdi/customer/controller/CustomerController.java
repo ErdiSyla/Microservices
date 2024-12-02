@@ -1,4 +1,7 @@
-package com.erdi.customer;
+package com.erdi.customer.controller;
+
+import com.erdi.customer.model.CustomerRequest;
+import com.erdi.customer.service.CustomerService;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

@@ -1,4 +1,4 @@
-package com.erdi.customer;
+package com.erdi.customer.model;
 
 import lombok.Builder;
 import lombok.Data;
