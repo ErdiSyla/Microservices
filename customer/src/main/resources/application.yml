@@ -3,7 +3,7 @@ server:
 
 spring:
   application:
-    name: schdlr
+    name: customer
   datasource:
     username: 'ErdiSyla'
     url: jdbc:postgresql://localhost:5500/customer
