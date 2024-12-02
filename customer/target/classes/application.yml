@@ -3,4 +3,15 @@ server:
 
 spring:
   application:
-    name: customer
+    name: schdlr
+  datasource:
+    username: 'ErdiSyla'
+    url: jdbc:postgresql://localhost:5500/customer
+    password: 'lightweightNoReaction123'
+  jpa:
+    properties:
+      hibernate:
+        format_sql: 'true'
+    hibernate:
+      ddl-auto: update
+    show-sql: 'true'

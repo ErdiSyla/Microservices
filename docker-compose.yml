@@ -1,0 +1,38 @@
+services:
+  postgres:
+    container_name: microservicespostgres
+    image: postgres
+    environment:
+      POSTGRES_USER: ErdiSyla
+      POSTGRES_PASSWORD: lightweightNoReaction123
+      PGDATA: /data/microservicespostgres
+    volumes:
+      - microservicespostgres:/data/postgres
+    ports:
+      - "5500:5432"
+    networks:
+      - microservicespostgres
+    restart: unless-stopped
+
+  pgadmin:
+    container_name: microservicespgadmin
+    image: dpage/pgadmin4
+    environment:
+      PGADMIN_DEFAULT_EMAIL: erdisyla6@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: lessIsSometimesMore456
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    volumes:
+      - microservicespgadmin:/var/lib/pgadmin
+    ports:
+      - "5050:80"
+    networks:
+      - microservicespostgres
+    restart: unless-stopped
+
+networks:
+  microservicespostgres:
+    driver: bridge
+
+volumes:
+  microservicespostgres:
+  microservicespgadmin:
