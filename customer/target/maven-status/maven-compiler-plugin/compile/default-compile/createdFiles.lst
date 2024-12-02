@@ -1,1 +1,7 @@
+com\erdi\customer\model\Customer.class
+com\erdi\customer\service\CustomerService.class
 com\erdi\customer\CustomerApplication.class
+com\erdi\customer\repository\CustomerRepository.class
+com\erdi\customer\controller\CustomerController.class
+com\erdi\customer\model\Customer$CustomerBuilder.class
+com\erdi\customer\model\CustomerRequest.class

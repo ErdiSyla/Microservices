@@ -1,1 +1,6 @@
+D:\VsCodeProjects\Microservices\customer\src\main\java\com\erdi\customer\controller\CustomerController.java
 D:\VsCodeProjects\Microservices\customer\src\main\java\com\erdi\customer\CustomerApplication.java
+D:\VsCodeProjects\Microservices\customer\src\main\java\com\erdi\customer\model\Customer.java
+D:\VsCodeProjects\Microservices\customer\src\main\java\com\erdi\customer\model\CustomerRequest.java
+D:\VsCodeProjects\Microservices\customer\src\main\java\com\erdi\customer\repository\CustomerRepository.java
+D:\VsCodeProjects\Microservices\customer\src\main\java\com\erdi\customer\service\CustomerService.java
