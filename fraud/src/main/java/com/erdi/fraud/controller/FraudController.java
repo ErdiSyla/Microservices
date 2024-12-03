@@ -10,21 +10,25 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import lombok.AllArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
 @RestController
-@RequestMapping("v1/fraud-check")
+@RequestMapping("v1/fraud-check/")
 @AllArgsConstructor
+@Slf4j
 public class FraudController {
-    
+
     private final FraudCheckService fraudCheckService;
 
     @GetMapping(path = "{customerId}")
-    public ResponseEntity<String> isFraudster(@PathVariable("customerId") Integer customerId){
+    public ResponseEntity<String> isFraudster(@PathVariable("customerId") Integer customerId) {
         boolean isFraudulent = fraudCheckService.isFraudulentCustomer(customerId);
-        if(isFraudulent){
-            return new ResponseEntity<>("Customer is a fraud",HttpStatus.UNAUTHORIZED);
-        }else{
-            return new ResponseEntity<>("Customer is allowed access",HttpStatus.CONTINUE);
+        log.info("Fraud-check request for customer : " + customerId);
+        if (isFraudulent){
+            return new ResponseEntity<>("Customer is a fraud", HttpStatus.FORBIDDEN);
+            
+        } else {
+            return new ResponseEntity<>("Customer is allowed access", HttpStatus.OK);
         }
     }
 }

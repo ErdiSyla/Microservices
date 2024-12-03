@@ -1,3 +1,4 @@
+com\erdi\customer\config\CustomerConfig.class
 com\erdi\customer\model\Customer.class
 com\erdi\customer\service\CustomerService.class
 com\erdi\customer\CustomerApplication.class

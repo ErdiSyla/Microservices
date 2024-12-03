@@ -6,17 +6,24 @@ import com.erdi.customer.model.Customer;
 import com.erdi.customer.model.CustomerRequest;
 import com.erdi.customer.repository.CustomerRepository;
 
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.web.client.RestClientException;
+import org.springframework.web.client.RestTemplate;
 
 @Service
 public class CustomerService {
 
     private final CustomerRepository customerRepository;
 
-    public CustomerService(CustomerRepository customerRepository) {
+    private final RestTemplate restTemplate;
+
+    public CustomerService(CustomerRepository customerRepository, RestTemplate restTemplate) {
         this.customerRepository = customerRepository;
+        this.restTemplate = restTemplate;
     }
 
     public ResponseEntity<String> registerCustomer(CustomerRequest customerRequest) {
@@ -27,8 +34,22 @@ public class CustomerService {
                 .build();
 
         if (isValidEmail(customer) && !usedEmail(customer)) {
-            customerRepository.save(customer);
-            return new ResponseEntity<>("Customer Registered", HttpStatus.CREATED);
+           
+            customerRepository.saveAndFlush(customer);
+            try {
+                ResponseEntity<String> response = restTemplate.exchange(
+                        "http://localhost:8083/v1/fraud-check/{customerId}",
+                        HttpMethod.GET,
+                        null,
+                        String.class,
+                        customer.getId()
+                );
+
+                return response;
+
+            } catch (RestClientException e) {
+                return new ResponseEntity<>("Error communicating with Fraud Service", HttpStatus.SERVICE_UNAVAILABLE);
+            }
         } else if (!isValidEmail(customer)) {
             return new ResponseEntity<>("Invalid email", HttpStatus.BAD_REQUEST);
         } else {
