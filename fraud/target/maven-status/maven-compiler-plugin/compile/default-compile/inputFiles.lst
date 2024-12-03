@@ -1,2 +1,5 @@
+D:\VsCodeProjects\Microservices\fraud\src\main\java\com\erdi\fraud\controller\FraudController.java
 D:\VsCodeProjects\Microservices\fraud\src\main\java\com\erdi\fraud\FraudApplication.java
 D:\VsCodeProjects\Microservices\fraud\src\main\java\com\erdi\fraud\model\FraudCheckHistory.java
+D:\VsCodeProjects\Microservices\fraud\src\main\java\com\erdi\fraud\repository\FraudCheckHistoryRepository.java
+D:\VsCodeProjects\Microservices\fraud\src\main\java\com\erdi\fraud\service\FraudCheckService.java
