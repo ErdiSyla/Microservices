@@ -1,1 +1,3 @@
+com\erdi\fraud\model\FraudCheckHistory.class
 com\erdi\fraud\FraudApplication.class
+com\erdi\fraud\model\FraudCheckHistory$FraudCheckHistoryBuilder.class
