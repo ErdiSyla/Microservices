@@ -6,7 +6,6 @@ import com.erdi.customer.model.Customer;
 import com.erdi.customer.model.CustomerRequest;
 import com.erdi.customer.repository.CustomerRepository;
 
-import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -38,7 +37,7 @@ public class CustomerService {
             customerRepository.saveAndFlush(customer);
             try {
                 ResponseEntity<String> response = restTemplate.exchange(
-                        "http://localhost:8083/v1/fraud-check/{customerId}",
+                        "http://FRAUD/v1/fraud-check/{customerId}",
                         HttpMethod.GET,
                         null,
                         String.class,
